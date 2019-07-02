@@ -1,0 +1,63 @@
+# DIP Homework Assignment #1
+# 03 03, 2019
+# Name: Hsiang-Hsu Chuang
+# ID #: B04902083
+# email: b04902083@csie.ntu.edu.tw
+# compiled on GNU/Linux Arch 4.20.13 x86_64 with g++
+
+# File structure:
+# - DIP_HW1_HsiangHsuChuang_B04902083_Electronic\
+# |- problem0\
+# |   |- main.cpp
+# |- problem1\
+# |   |- main.cpp
+# |- problem2\
+# |   |- main.cpp
+# |- raw\*
+# |- basic.cpp
+# |- basic.h
+# |- README
+
+CC 	   = g++
+STDC++ = -std=c++11
+
+All: prob0 prob1 prob2
+
+.ONESHELL:
+prob0: problem0/main.cpp ../../basic.cpp ../../basic.h
+	@echo "Move to warmup workspace" && cd ./problem0
+	@echo "WARM-UP: SIMPLE MANIPULATIONS"
+	@echo "Compiling and linking the code"
+	$(CC) $(STDC++) main.cpp -o main.out
+
+	@echo "Running, usage: main.out <inputImageName>"
+	./main.out ../raw/sample1.raw
+
+	@echo "" && cd ..
+
+.ONESHELL:
+prob1: problem1/main.cpp ../../basic.cpp ../../basic.h
+	@echo "Move to problem1 workspace" && cd ./problem1
+	@echo "PROBLEM 1: IMAGE ENHANCEMENT"
+	@echo "Compiling and linking the code"
+	$(CC) $(STDC++) main.cpp -o main.out
+
+	@echo "Running, usage: main.out <inputImageName>"
+	./main.out ../raw/sample2.raw
+
+	@echo "" && cd ..
+
+.ONESHELL:
+prob2: problem2/main.cpp ../../basic.cpp ../../basic.h
+	@echo "Move to problem2 workspace" && cd ./problem2
+	@echo "PROBLEM 2: NOISE REMOVAL"
+	@echo "Compiling and linking the code"
+	$(CC) $(STDC++) main.cpp -o main.out
+
+	@echo "Running, Usage: main.out <origin image> <noise image1> <noise image2>"
+	./main.out ../raw/sample3.raw ../raw/sample4.raw ../raw/sample5.raw
+
+	@echo "" && cd ..
+
+clean:
+	rm ./problem*/*.out ./problem*/*.raw

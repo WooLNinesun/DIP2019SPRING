@@ -1,0 +1,36 @@
+# DIP Homework Assignment #4
+# 05 12, 2019
+# Name: Hsiang-Hsu Chuang
+# ID #: B04902083
+# email: b04902083@csie.ntu.edu.tw
+# compiled on GNU/Linux Arch 4.20.13 x86_64 with g++
+
+# File structure:
+# - DIP_HW4_HsiangHsuChuang_B04902083_Electronic\
+# |- problem1\
+# |   |- main.cpp
+# |- raw\*
+# |- basic.cpp
+# |- basic.h
+# |- matrix.cpp
+# |- matrix.h
+# |- README
+
+CC 	   = g++
+STDC++ = -std=c++11
+
+All: prob1
+
+.ONESHELL:
+prob1: problem1/main.cpp ../../basic.cpp ../../basic.h
+	@echo "Move to problem1 workspace" && cd ./problem1
+	@echo "Compiling and linking the code"
+	$(CC) $(STDC++) main.cpp -o main.out
+
+	@echo "Running, usage: main.out <inputImage>"
+	./main.out ../raw/sample1.raw
+
+	@echo "" && cd ..
+
+clean:
+	rm ./problem*/*.out ./problem*/*.raw
