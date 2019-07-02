@@ -1,0 +1,3 @@
+[submodule "projects"]
+      path = projects
+      url = git@github.com:WooLNinesun/DIP2019SPRING_Projects.git
